@@ -1,0 +1,39 @@
+.cards {
+  display: flex;
+  height: 200px;
+  width: 100%;
+  background-color: grey;
+  border-radius: 5px;
+  /* margin: 10px; */
+}
+
+.left > img {
+  width: 80%;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.left {
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.right {
+  width: 60%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+p {
+  font-size: 20px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
