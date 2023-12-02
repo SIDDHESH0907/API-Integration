@@ -5,20 +5,26 @@ import employees from "./emp-data.json";
 
 function CardList() {
   return (
-    <div className="parent">
-      {/* <Card {...employee[0]} /> */}
+    <>
+      <div className="parent">
+        {/* <Card {...employee[0]} /> */}
 
-      {/* <Card employee_data={employee[0]} />
+        {/* <Card employee_data={employee[0]} />
       <Card employee_data={employee[1]} />
       <Card employee_data={employee[2]} />
       <Card employee_data={employee[3]} /> */}
 
-      {employees.map((employee) => {
-        return <Card {...employee} />;
-      })}
-    </div>
+        {employees.map((employee) => {
+          return <Card {...employee} />;
+        })}
+      </div>
+
+      <div className="nav">
+        <button className="button">Pre</button>
+        <button className="button">Next</button>
+      </div>
+    </>
   );
 }
 
 export default CardList;
-
