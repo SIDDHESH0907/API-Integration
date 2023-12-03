@@ -1,32 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import "./CardList.css";
 import employee from "./emp-data.json";
 
 function CardList() {
-  let page_no = 0;
+  let [page_no, setPageNumber] = useState(0);
   let per_page = 3;
-  let start_index = 0;
-  let end_index = 3;
-  let employees = employee.slice(start_index, end_index);
+  let start_index = page_no * per_page;
+  let end_index = start_index + per_page;
+  let [employees, setEmployees] = useState(employee.slice(start_index, end_index));
 
   let pre_page = () => {
-    page_no -= 1;
-    if (page_no >= 0) {
-      start_index = page_no * per_page;
+    if (page_no > 0) {
+      setPageNumber((prevPage) => prevPage - 1);
+      start_index = (page_no - 1) * per_page;
       end_index = start_index + per_page;
-      console.log(start_index, end_index);
-      employee = employee.slice(start_index, end_index);
+      setEmployees(employee.slice(start_index, end_index));
     }
   };
 
   let next_page = () => {
-    page_no += 1;
-    if (page_no >= 0) {
-      start_index = page_no * per_page;
+    if (page_no < Math.floor(employee.length / per_page)-1) {
+      setPageNumber((prevPage) => prevPage + 1);
+      start_index = (page_no + 1) * per_page;
       end_index = start_index + per_page;
-      console.log(start_index, end_index);
-      employee = employee.slice(start_index, end_index);
+      setEmployees(employee.slice(start_index, end_index));
     }
   };
 
@@ -41,8 +39,10 @@ function CardList() {
       </div>
 
       <div className="nav">
-        <button className="button" onClick={pre_page}>Pre</button>
-        <button className="button" onClick={next_page}>Next</button>
+        <button onClick={pre_page} disabled={page_no === 0 || page_no < 0}>
+          Pre
+        </button>
+        <button onClick={next_page}>Next</button>
       </div>
     </>
   );

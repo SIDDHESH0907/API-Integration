@@ -1,14 +1,14 @@
 .parent {
   display: grid;
-  margin: 10px;
   grid-template-columns: repeat(3, 1fr);
+  margin: 10px;
   /* grid-template-rows: repeat(5, 1fr); */
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
 
-.button {
-  background-color: gray;
+button {
+  /* background-color: gray; */
   color: black;
   border: none;
   /* margin: 10px;
